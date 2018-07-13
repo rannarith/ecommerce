@@ -1,6 +1,10 @@
 <?php
 
 $con = mysqli_connect("localhost","root","","ecommerce");
+if(mysqli_connect_errno())
+        {
+            echo "Failed to connect to MYQSL:" .mysqli_connect_error();
+        }
 
 // Getting the categories
 
@@ -52,7 +56,7 @@ function getPro() {
     if(!isset($_GET['cat'])){
         if(!isset($_GET['brand'])){
 
-    $get_pro = "select * from products order by RAND() LIMIT 0,20";
+    $get_pro = "select * from products order by RAND() LIMIT 0,9";
 
     $run_pro = mysqli_query($con, $get_pro);
 
@@ -70,7 +74,7 @@ function getPro() {
                 <img src='admin_area/product_images/$pro_image' width='180' height='140' />
                 <p>$ $pro_price</p>
 
-                <a href='index.php?pro_id=$pro_id' style='float:left'>Detail</a>
+                <a href='details.php?pro_id=$pro_id' style='float:left'>Details</a>
 
                 <a href='detail.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</a>
             </div>       
@@ -96,7 +100,12 @@ function getCatPro() {
     $get_cat_pro = "select * from products where product_cat = '$cat_id'";
 
     $run_cat_pro = mysqli_query($con, $get_cat_pro);
-     
+
+    $count_pro = mysqli_num_rows($run_cat_pro);
+
+        if($count_pro== 0){
+            echo "<h2 style='padding:20px';>No product for show. Thank you</h2>";
+        };
 
     while ($row_cat_pro=mysqli_fetch_array($run_cat_pro)){
         $pro_id = $row_cat_pro['product_id'];
@@ -133,6 +142,10 @@ function getBraPro() {
     $get_bra_pro = "select * from products where product_brand = '$brand_id'";
 
     $run_bra_pro = mysqli_query($con, $get_bra_pro);
+    $count_bar = mysqli_num_rows($run_bra_pro);
+    if($count_bar == 0){
+        echo "<h2 style='padding:20px';>No Brands for show. Thank you</h2>";
+    }
 
     while ($row_bra_pro=mysqli_fetch_array($run_bra_pro)){
         $pro_id = $row_bra_pro['product_id'];
