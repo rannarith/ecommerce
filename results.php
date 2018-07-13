@@ -90,11 +90,11 @@
                     <div id="products_box" >
                     <?php 
                         
-
+                        if(isset($_GET['search'])){ // search to click on button Search and work all hold in below
                        
-                        
+                        $search_query = $_GET['user_query']; // user_query get form text of serach
 
-                        $get_pro = "select * from products";
+                        $get_pro = "select * from products where product_keywords like '%$search_query%' ";
 
                         $run_pro = mysqli_query($con, $get_pro);
 
@@ -114,12 +114,14 @@
 
                                     <a href='details.php?pro_id=$pro_id' style='float:left'>Details</a>
 
-                                    <a href='detail.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</a>
+                                    <a href='results.php?pro_id=$pro_id'><button style='float:right'>Add to Cart</a>
                                 </div>       
 
                             ";
+                        }
+                        }
+
                         
-                        } //<!--End_function-->
 
                        
                     ?>    

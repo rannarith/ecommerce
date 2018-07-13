@@ -112,12 +112,13 @@
                                         <div id='single_product'>
                                             <h3>$pro_title</h3>
                                             <img src='admin_area/product_images/$pro_image' width='300' height='240' />
-                                            <p>$ $pro_price</p>
-                                            <div id='shopping_detail'>
+                                            <p><b>Price: $</b> $pro_price</p>
+                                            
                                             <p> $pro_desc </p>
+                                            
                                             <a href='index.php' style='float:left'>Go Back</a>
                                             <a href='cart.php'><button style='float:right'>Add to Cart</a>
-                                            </div>
+                                            
                                         </div>       
 
                                     ";

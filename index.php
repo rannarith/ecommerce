@@ -73,17 +73,19 @@
                 </div>
 
                 <div id="content_area">
-
+                    <?php cart(); ?>
                     <div id="shopping_cart">
                    
                         <span style="float:right; font-size: 18px; padding:5px; line-height: 40px;"> 
                         
-                        Welcome Guest! <b style="color:yellow">Shopping cart:</b>Total Item: Total Price: 
+                        Welcome Guest! <b style="color:yellow">Shopping cart:</b>Total Item:<b style="color: red"><?php total_items(); ?> </b>
+                        </b>Total Pirce:<b style="color: red"><?php total_price(); ?></b>
                         <a href="cart.php" style="color:yellow">Go to Cart</a>
                         </span>
                     
                     </div>
-
+               
+                 
                     <div id="products_box" >
                         <?php getPro(); ?>
                         <?php getCatPro(); ?>
