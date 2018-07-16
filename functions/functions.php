@@ -34,7 +34,8 @@ function cart(){
        $run_check = mysqli_query($con, $check_pro);
 
        if(mysqli_num_rows($run_check)>0 ) {
-           echo "Hello check";
+           echo " <h2 style= color:red> Product already add! </h2>";
+         
 
        }
        else {

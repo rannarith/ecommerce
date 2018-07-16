@@ -91,14 +91,14 @@ body { background: skyblue; }
 
 .content_wrapper {
     width: 1000px;
-    height: 800px;
+    height: auto;
     margin: auto;
     background: pink;
 }
 
 #content_area {
     width: 800px;
-    height: 800px;
+    height: auto;
     margin: auto;
     float: right;
     background: pink;
