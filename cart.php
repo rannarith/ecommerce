@@ -132,7 +132,7 @@
                                 <td><?php echo $product_title; ?><br> 
                                 <img src="admin_area/product_images/<?php echo $product_image; ?>" width="60"  height="40">
                                 </td>
-                                <td><input type="text" size="4" name="qty" value="<?php echo $_SESSION['qty']; ?> "></td>
+                                <td><input type="text" size="4" name="qty" value="<?php echo $_SESSION['qty']; ?> "/></td>
                                     <?php 
                                         if(isset($_POST['update_cart'])) {
                                             $qty = $_POST['qty'];
@@ -140,6 +140,7 @@
                                             $run_update_qty = mysqli_query($con, $update_qty);
                                             $_SESSION['qty'] = $qty; //use SESSION Libraries 
                                             $total = $total * $qty;
+                                           
                                         }
                                     ?>
                                 
@@ -167,7 +168,9 @@
 
                     <?php 
 
-                        function updatecart(){
+                   function updatecart(){
+                       
+                        global $con;
                         $ip = getIp();
                         if(isset($_POST['update_cart'])){
 
@@ -185,8 +188,10 @@
                         if(isset($_POST['continue'])) {
                             echo "<script>window.open('index.php','_self')</script>";
                         }
-                        echo @$up_cart = updatecart();
-                    }
+
+                      echo @$up_cart = updatecart();   
+                 }
+                    
                     ?>
                         
                     </div>
