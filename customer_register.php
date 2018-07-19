@@ -129,7 +129,6 @@
                                             <option>SP</option>
                                         
                                         </select>
-                                    
                                     </td>
                                 </tr>
 
@@ -200,9 +199,9 @@
         
         move_uploaded_file($c_image_tpm,"customer/customer_images/$c_image");
 
-        $insert_c = "insert into customer1 
-        (customer_ip, customer_name, customer_email, customer_pass)
-        values ('$ip','$c_name','$c_email', '$c_pass')";
+        $insert_c = "insert into customers 
+        (customer_ip, customer_name, customer_email, customer_pass, customer_contact, customer_city, customer_country, customer_address, customer_image)
+        values ('$ip','$c_name','$c_email', '$c_pass', '$c_contact', '$c_city', '$c_country', '$c_address', '$c_image' )";
         
 
         $run_c = mysqli_query($con, $insert_c);
