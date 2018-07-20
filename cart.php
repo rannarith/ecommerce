@@ -77,10 +77,33 @@
                     <div id="shopping_cart">
                    
                         <span style="float:right; font-size: 18px; padding:5px; line-height: 40px;"> 
+
+                        <?php 
+                        if(isset($_SESSION['customer_email'])) {
+                            echo "<b>Welcome:</b>" . $_SESSION['customer_email'] . "<b style='color:yellow;'> Your </b>" ; 
+                        }
+                        else {
+                            echo "<b>Welcome Guest1</b>";
+                        }
                         
-                        Welcome Guest! <b style="color:yellow">Shopping cart:</b>Total Item:<b style="color: red"><?php total_items(); ?> </b>
+                        ?>
+                        
+                        <b style="color:yellow">Shopping cart:</b>Total Item:<b style="color: red"><?php total_items(); ?> </b>
                         </b>Total Pirce:<b style="color: red"><?php total_price(); ?></b>
-                        <a href="cart.php" style="color:yellow">Go to Cart</a>
+                        <a href="index.php" style="color:yellow">Back to shop</a>
+
+                        <?php 
+                        
+                        if(!isset($_SESSION['customer_email'])) {
+
+                            echo "<a href='checkout.php'>Login</a>";
+                        }
+                        else {
+                            echo "<a href='logout.php'>Logout</a>";
+                        }
+                        
+                        ?>
+
                         </span>
                     
                     </div>
