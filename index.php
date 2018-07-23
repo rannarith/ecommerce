@@ -30,7 +30,7 @@
                 <ul id="menu">
                     <li><a href="index.php">Home</a></li>
                     <li><a href='all_products.php'>All Product</a></li>
-                    <li><a href="#">My Account</a></li>
+                    <li><a href='customer/my_account.php'>My Account</a></li>
                     <li><a href="#">Sign Up</a></li>
                     <li><a href="#">Shopping Cart</a></li>
                     <li><a href="#">Contact Us</a></li>
