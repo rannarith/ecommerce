@@ -37,7 +37,7 @@
 
 ?>
     
-    <form action="insert_product.php" method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         <table align="center" width="795" border="1" bgcolor= "gray">
             
             <tr align="center">
@@ -52,7 +52,7 @@
            <tr>
                 <td align="right">Product Categories</td>
                 <td>
-                    <select name="product_cat" disabled required>
+                    <select name="product_cat">
                         
                         
                         <?php
@@ -78,7 +78,7 @@
             <tr>
                 <td align="right">Product Brand</td>
                 <td>
-                    <select name="product_brand" disabled required>
+                    <select name="product_brand" >
                        
                         <?php
                         
@@ -157,7 +157,7 @@
         $update_pro = "update products set
         product_title='$product_title',
         product_price='$product_price',product_desc='$product_desc',product_image='$product_image'
-        ,product_keywords='$product_keywords' where product_id='$product_id'";
+        ,product_keywords='$product_keywords' where product_id='$product_id' ";
         
         
         $run_update = mysqli_query($con, $update_pro);
@@ -165,9 +165,7 @@
         if($run_update){
 
             echo "<script>alert('Product has been inserted')</script>";
-            echo "<script>window.open('index.php?edit_pro','_self')</script>";
+            echo "<script>window.open('index.php?view_products','_self')</script>";
         }
         
    }
-
-?>

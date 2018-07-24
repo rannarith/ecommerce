@@ -1,8 +1,14 @@
 <!DOCTYPE>
 <?php
 
-    include("includes/db.php");
+include("includes/db.php");
 
+if(!isset($_SESSION['user_email'])){
+                    
+    echo "<script>window.open('admin_login.php?not_admin=You are not admin','_self')</script>";
+    
+}
+else {
 ?>
 
 <html>
@@ -148,3 +154,4 @@
    }
 
 ?>
+<?php } ?>
