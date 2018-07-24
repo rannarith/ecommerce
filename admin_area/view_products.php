@@ -24,6 +24,7 @@
 
     while($row_pro=mysqli_fetch_array($run_pro)) {
 
+        $pro_id = $row_pro['product_id'];
         $por_title = $row_pro['product_title'];
         $por_image = $row_pro['product_image'];
         $por_price = $row_pro['product_price'];
@@ -36,16 +37,11 @@
         <td><?php echo $por_title; ?></td>
         <td><img src="product_images/<?php echo $por_image; ?>" width="60" height="50"/></td>
         <td><?php echo $por_price; ?></td>
-        <td><a href="index.php?edit_pro">Edit</a></td>
-        <td><a href="index.php?delete_pro">Delete</a></td>
+        <td><a href="index.php?edit_pro=<?php echo $pro_id ?>">Edit</a></td>
+        <td><a href="index.php?delete_pro=<?php echo $pro_id ?>">Delete</a></td>
 
     </tr>
-    <?php 
-        if(isset($_GET['edit_pro'])) {
-            include("edit_pro.php");
-        }
-
-    ?>
+    
     <?php } ?>
 
     

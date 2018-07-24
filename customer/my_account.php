@@ -92,6 +92,7 @@
 
                         <?php 
                         if(isset($_SESSION['customer_email'])) {
+                            
                             echo "<b>Welcome:</b>" . $_SESSION['customer_email'] ;
                         }
                         else {
@@ -148,7 +149,7 @@
                     }
                     if(isset($_GET['delete_account'])){
                         include("delete_account.php");
-                        }
+                    }
                     
                     
                     ?>
